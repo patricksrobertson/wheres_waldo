@@ -1,8 +1,9 @@
 App.ApplicationController = Ember.Controller.extend
   isHome: (->
-    @get('currentRoute') == 'home'
-  ).property('currentRoute')
+    @get('currentRoute') is 'home').property('currentRoute')
 
   isPatients: (->
-    @get('currentRoute') == 'patients'
-  ).property('currentRoute')
+    @get('currentRoute') is 'patients').property('currentRoute')
+
+  isUsers: (->
+    @get('currentRoute') is 'users').property('currentRoute')

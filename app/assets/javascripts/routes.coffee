@@ -4,7 +4,7 @@ App.Router.reopen
 
 App.Router.map ->
   @resource 'patients', ->
-    @route 'new'
+  @resource 'users', ->
 
 App.IndexRoute = Ember.Route.extend
   setupController: (controller, model) ->
@@ -17,3 +17,11 @@ App.PatientsIndexRoute = Ember.Route.extend
   setupController: (controller, model) ->
     controller.set('patients', model)
     @controllerFor('application').set('currentRoute', 'patients')
+
+App.UsersIndexRoute = Ember.Route.extend
+  model: ->
+    App.User.find()
+
+  setupController: (controller, model) ->
+    controller.set('users', model)
+    @controllerFor('application').set('currentRoute', 'users')
