@@ -13,3 +13,8 @@
 #= require_tree ./views
 
 window.App = Ember.Application.create()
+
+App.currentUser =
+  bearerToken: 'abcdefg'
+  uid:         '1234567'
+  appName:     'wheres_waldo'
