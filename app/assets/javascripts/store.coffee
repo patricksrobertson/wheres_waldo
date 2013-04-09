@@ -19,9 +19,9 @@ App.RestAdapter = DS.RESTAdapter.extend
 
   _setCustomHeaders: (hash, user = App.currentUser) ->
     headers                   = hash || {}
-    headers['X-Bearer-Token'] = user.bearerToken
-    headers['X-Uid']          = user.uid
-    headers['X-App-Name']     = user.appName
+    headers['X-Bearer-Token'] = user.get('bearerToken')
+    headers['X-Uid']          = user.id
+    headers['X-App-Name']     = user.get('appName')
 
     headers
 

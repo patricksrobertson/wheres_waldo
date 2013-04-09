@@ -4,6 +4,9 @@
     <%= stylesheet_link_tag :application, :media => :all %>
     <%= javascript_include_tag :application %>
     <title>Title</title>
+    <% if @current_user %>
+      <meta name="current-user" content="<%= @current_user %>" />
+    <% end %>
   </head>
   <body>
   </body>
