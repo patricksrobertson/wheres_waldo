@@ -34,3 +34,22 @@ I chose to use [Ember.js](http://emberjs.com) for the rich client because it's b
 
 The Services
 ------------
+
+[https://github.com/patricksrobertson/icis-patient-ex](https://github.com/patricksrobertson/icis-patient-ex)
+
+[https://github.com/patricksrobertson/icis-user-ex](https://github.com/patricksrobertson/icis-user-ex)
+
+These are [Rails-API](https://github.com/rails-api/rails-api) apps that provide JSON API endpoints to the Ember.js application. They authenticate with the OAuth provider with Rack Middleware.
+
+The Middleware
+--------------
+
+[https://github.com/patricksrobertson/rack-icis_identity_auth](https://github.com/patricksrobertson/rack-icis_identity_auth)
+
+This middleware snags the custom headers sent by the Ember.js application and then makes a request to the OAuth provider to confirm that they are in fact legit. I'm personally debating as to whether or not this should be Middleware or if it should be a Rails engine. 
+
+In reality, we'll need to persist some sort of 'Access Grant' that tells the middleware that we don't need to make a request to the OAuth provider. It should time out somewhat frequently, but keep us from DDoS'ing our own service. It will also need to paramaterize either a whitelist/blacklist of the API endpoints it is protecting. As it stands, it protects everything.
+
+These things would be easier to accomplish for Rails/Rails-API based apps with an engine and before_filters. If we kept the architecture as Rack Middleware we are free to implement API endpoints in any RACK based framework.
+
+
