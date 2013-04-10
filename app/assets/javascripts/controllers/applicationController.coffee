@@ -7,3 +7,6 @@ App.ApplicationController = Ember.Controller.extend
 
   isUsers: (->
     @get('currentRoute') is 'users').property('currentRoute')
+
+  isAppointments: (->
+    @get('currentRoute') is 'appointments').property('currentRoute')

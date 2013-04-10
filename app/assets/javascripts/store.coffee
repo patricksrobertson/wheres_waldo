@@ -25,6 +25,14 @@ App.RestAdapter = DS.RESTAdapter.extend
 
     headers
 
+App.RestAdapter.registerTransform 'array',
+  serialize: (value) ->
+    return value
+
+  deserialize: (value) ->
+    return value
+
+
 App.Store.registerAdapter('App.Patient', App.RestAdapter.extend
   bulkCommit: false
   namespace: 'api/v1'
@@ -35,4 +43,10 @@ App.Store.registerAdapter('App.User', App.RestAdapter.extend
   bulkCommit: false
   namespace: 'api/v1'
   url: 'http://icis-users-example.herokuapp.com'
+)
+
+App.Store.registerAdapter('App.Appointment', App.RestAdapter.extend
+  bulkCommit: false
+  namespace: 'api/v1'
+  url: 'http://icis-appointment-example.herokuapp.com'
 )
