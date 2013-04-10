@@ -31,7 +31,7 @@ App.Store.registerAdapter('App.Patient', App.RestAdapter.extend
   url: 'http://icis-patient-example.herokuapp.com'
 )
 
-App.Store.registerAdapter('App.User', DS.RESTAdapter.extend
+App.Store.registerAdapter('App.User', App.RestAdapter.extend
   bulkCommit: false
   namespace: 'api/v1'
   url: 'http://icis-users-example.herokuapp.com'
