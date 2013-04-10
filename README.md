@@ -12,4 +12,9 @@ The Provider
 ------------
 
 [https://github.com/patricksrobertson/icis_identity](https://github.com/patricksrobertson/icis_identity)
-There isn't a lot fancy going on here. We have a basic devise setup that then has a [https://github.com/applicake/doorkeeper](Doorkeeper)
+
+There isn't a lot fancy going on here. We have a basic devise setup that then has a [Doorkeeper](https://github.com/applicake/doorkeeper) backed OAuth setup. There are two APIs endpoints that are exposed:
+api/v1/me - This provides basic information for clients authenticating.
+apiv/v1/verify - This allows services to ask if a specific token/user id is legit. All services implement middleware that does this automagically.
+
+
