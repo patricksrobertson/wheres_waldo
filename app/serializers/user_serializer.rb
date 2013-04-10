@@ -4,8 +4,9 @@ class UserSerializer < ActiveModel::Serializer
   def id
     object.uid
   end
+
   def bearer_token
-    object.provider
+    object.access_grant.access_token
   end
 
   def app_name

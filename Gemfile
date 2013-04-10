@@ -4,7 +4,7 @@ ruby '1.9.2'
 
 gem 'rails', '3.2.13'
 gem 'thin'
-gem 'active_model_serializers', :github => 'rails-api/active_model_serializers'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 gem 'identity_client'
 
 group :development, :test do

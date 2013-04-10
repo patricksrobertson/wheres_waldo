@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130407124314) do
+ActiveRecord::Schema.define(:version => 20130410124037) do
+
+  create_table "identity_client_access_grants", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "access_token"
+    t.datetime "expires_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "identity_client_users", :force => true do |t|
     t.string   "provider"
