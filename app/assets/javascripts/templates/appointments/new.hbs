@@ -4,29 +4,26 @@
     <div>
       <label {{bindAttr for="reasonField.elementId"}}>Reason</label>
       {{view Ember.TextField valueBinding='reason' name='reason' viewName='reasonField'}}
+    </div>
     <div>
       <label {{bindAttr for="atField.elementId"}}>At</label>
       {{ view Ember.TextField valueBinding='at' name='at' viewName='atField' type='date'}}
     </div>
     <div>
-      <label {{bindAttr for="patientIdsField.elementId"}}>Patient(s)</label>
-      {{view Ember.Select
-              contentBinding='controller.patients'
-              optionValuePath='content.id'
-              optionLabelPath='content.name'
-              name='patientIds'
-              viewName='patientIdsField'
-              multiple='true' }}
+      <label for="patientIds">Patient(s)</label>
+      <select multiple='multiple' id='patientIds' name="patientIds">
+        {{#each controller.patients}}
+          <option value="{{unbound id}}">{{name}}</option>
+        {{/each}}
+      </select>
     </div>
     <div>
-      <label {{bindAttr for="userIdsField.elementId"}}>Staff Member(s)</label>
-      {{view Ember.Select
-              contentBinding='controller.users'
-              optionValuePath='content.id'
-              optionLabelPath='content.name'
-              name='userIds'
-              viewName='userIdsField'
-              multiple='true' }}
+      <label for="userIds">Staff Member(s)</label>
+      <select multiple='multiple' id='userIds' name="userIds">
+        {{#each controller.users}}
+          <option value="{{unbound id}}">{{name}}</option>
+        {{/each}}
+      </select>
     </div>
     <a href='#' {{action save}} class='btn btn-success'>Create</a>
   </fieldset>
