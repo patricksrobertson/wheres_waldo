@@ -12,7 +12,7 @@ App.RestAdapter = DS.RESTAdapter.extend
     hash.headers = @_setCustomHeaders hash.headers
     hash.context = this
 
-    if hash.data and type is not 'GET'
+    if hash.data and type isnt 'GET'
       hash.data = JSON.stringify(hash.data)
 
     jQuery.ajax(hash)
