@@ -5,6 +5,12 @@
     <td>{{id}}</td>
     <td>{{reason}}</td>
     <td>{{at}}</td>
+    <td>{{#each users}}
+      {{name}}
+    {{/each}}</td>
+    <td>{{#each patients}}
+      {{name}}
+    {{/each}}</td>
   </tr>
 {{/each}}
 </table>
