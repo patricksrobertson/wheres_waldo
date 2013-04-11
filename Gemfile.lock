@@ -67,7 +67,7 @@ GEM
     faraday (0.8.7)
       multipart-post (~> 1.1)
     fssm (0.2.10)
-    handlebars_assets (0.9.0)
+    handlebars_assets (0.12.0)
       execjs (>= 1.2.9)
       sprockets (>= 2.0.3)
       tilt
@@ -168,7 +168,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2)
   compass-rails
   debugger
-  handlebars_assets (~> 0.9.0)
+  handlebars_assets
   identity_client
   pg
   quiet_assets
