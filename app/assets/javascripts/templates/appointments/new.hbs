@@ -1,0 +1,36 @@
+<h1>Create a new Appointment</h1>
+<form>
+  <fieldset>
+    <div>
+      <label {{bindAttr for="reasonField.elementId"}}>Reason</label>
+      {{view Ember.TextField valueBinding='reason' name='reason' viewName='reasonField'}}
+    <div>
+      <label {{bindAttr for="atField.elementId"}}>At</label>
+      {{ view Ember.TextField valueBinding='at' name='at' viewName='atField' type='date'}}
+    </div>
+    <div>
+      <label {{bindAttr for="patientIdsField.elementId"}}>Patient(s)</label>
+      {{view Ember.Select
+              contentBinding='controller.patients'
+              optionValuePath='content.id'
+              optionLabelPath='content.name'
+              name='patientIds'
+              viewName='patientIdsField'
+              multiple='true' }}
+    </div>
+    <div>
+      <label {{bindAttr for="userIdsField.elementId"}}>Staff Member(s)</label>
+      {{view Ember.Select
+              contentBinding='controller.users'
+              optionValuePath='content.id'
+              optionLabelPath='content.name'
+              name='userIds'
+              viewName='userIdsField'
+              multiple='true' }}
+    </div>
+    <a href='#' {{action save}} class='btn btn-success'>Create</a>
+  </fieldset>
+</form>
+<div class='page-header'></div>
+
+<a href='#' {{action cancel}} class='btn btn-inverse'>Cancel</a>

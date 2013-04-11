@@ -1,16 +1,22 @@
 <h1>Appointments</h1>
+{{#linkTo 'appointments.new' class='btn btn-primary'}}Create{{/linkTo}}
 <table class='table table-striped'>
+<tr>
+  <th>Patient(s)</th>
+  <th>At</th>
+  <th>With</th>
+  <th>Reason</th>
+</tr>
 {{#each controller}}
   <tr>
-    <td>{{id}}</td>
-    <td>{{reason}}</td>
+    <td>{{#each patients}}
+      {{name}}
+    {{/each}}</td>
     <td>{{at}}</td>
     <td>{{#each users}}
       {{name}}
     {{/each}}</td>
-    <td>{{#each patients}}
-      {{name}}
-    {{/each}}</td>
+    <td>{{reason}}</td>
   </tr>
 {{/each}}
 </table>

@@ -6,6 +6,7 @@ App.Router.map ->
   @resource 'patients', ->
   @resource 'users', ->
   @resource 'appointments', ->
+    @route 'new'
 
 App.IndexRoute = Ember.Route.extend
   setupController: (controller, model) ->
@@ -34,3 +35,13 @@ App.AppointmentsIndexRoute = Ember.Route.extend
   setupController: (controller, model) ->
     controller.set('appointments', model)
     @controllerFor('application').set('currentRoute', 'appointments')
+
+App.AppointmentsNewRoute = Ember.Route.extend
+  model: ->
+    App.Appointment.createRecord()
+
+  setupController: (controller, model) ->
+    @_super(controller, model)
+    controller.set('content', model)
+    controller.set('patients', App.Patient.find())
+    controller.set('users', App.User.find())
