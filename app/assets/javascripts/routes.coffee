@@ -45,3 +45,4 @@ App.AppointmentsNewRoute = Ember.Route.extend
     controller.set('content', model)
     controller.set('patients', App.Patient.find())
     controller.set('users', App.User.find())
+    @controllerFor('application').set('currentRoute', 'appointments')
